@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charity Fundraising</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-600 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-2xl">Charity Fundraising</a>
+            <div>
+                <a href="#fundraising" class="text-white mx-2">Fundraising</a>
+                <a href="#project1" class="text-white mx-2">Community Project 1</a>
+                <a href="#project2" class="text-white mx-2">Community Project 2</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-cover bg-center h-screen text-white" style="background-image: url('https://source.unsplash.com/random/1600x900');">
+        <div class="flex items-center justify-center h-full bg-opacity-50 bg-black">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold mb-4">Help Us Make a Difference</h1>
+                <p class="text-xl mb-8">Join our community to support fundraising and various projects.</p>
+                <a href="#fundraising" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fundraising Section -->
+    <section id="fundraising" class="py-12 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8">Fundraising Campaigns</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-200 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Campaign 1</h3>
+                    <p class="mb-4">Description of the fundraising campaign.</p>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="openModal('Campaign 1')">Donate</button>
+                </div>
+                <div class="bg-gray-200 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Campaign 2</h3>
+                    <p class="mb-4">Description of the fundraising campaign.</p>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="openModal('Campaign 2')">Donate</button>
+                </div>
+                <div class="bg-gray-200 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Campaign 3</h3>
+                    <p class="mb-4">Description of the fundraising campaign.</p>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="openModal('Campaign 3')">Donate</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Project 1 -->
+    <section id="project1" class="py-12 bg-gray-100">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8">Community Project 1</h2>
+            <p class="mb-8">Description of community project 1.</p>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="openModal('Community Project 1')">Learn More</button>
+        </div>
+    </section>
+
+    <!-- Community Project 2 -->
+    <section id="project2" class="py-12 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8">Community Project 2</h2>
+            <p class="mb-8">Description of community project 2.</p>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="openModal('Community Project 2')">Learn More</button>
+        </div>
+    </section>
+
+    <!-- Donation Modal -->
+    <div id="donationModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-lg w-1/2">
+            <h3 class="text-2xl font-bold mb-4" id="modalTitle">Donate</h3>
+            <form id="donationForm" onsubmit="handleDonation(event)">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-bold mb-2">Name:</label>
+                    <input type="text" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-bold mb-2">Email:</label>
+                    <input type="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <div class="mb-4">
+                    <label for="amount" class="block text-sm font-bold mb-2">Donation Amount:</label>
+                    <input type="number" id="amount" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <div class="mb-4">
+                    <label for="paymentMethod" class="block text-sm font-bold mb-2">Payment Method:</label>
+                    <select id="paymentMethod" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <option value="mpesa">M-Pesa</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="creditCard">Credit Card</option>
+                    </select>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Donate</button>
+                    <button type="button" class="text-gray-500 hover:text-gray-700" onclick="closeModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Charity Fundraising. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openModal(campaign) {
+            document.getElementById('modalTitle').innerText = 'Donate to ' + campaign;
+            document.getElementById('donationModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('donationModal').classList.add('hidden');
+        }
+
+        function handleDonation(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const amount = document.getElementById('amount').value;
+            const paymentMethod = document.getElementById('paymentMethod').value;
+
+            if (paymentMethod === 'mpesa') {
+                // Handle M-Pesa payment
+                alert('Redirecting to M-Pesa payment gateway...');
+                // Add your M-Pesa API integration here
+            } else if (paymentMethod === 'paypal') {
+                // Handle PayPal payment
+                alert('Redirecting to PayPal payment gateway...');
+                // Add your PayPal API integration here
+            } else if (paymentMethod === 'creditCard') {
+                // Handle credit card payment
+                alert('Redirecting to Credit Card payment gateway...');
+                // Add your credit card API integration here
+            } else {
+                alert('Please select a valid payment method');
+            }
+        }
+    </script>
+</body>
+</html>
